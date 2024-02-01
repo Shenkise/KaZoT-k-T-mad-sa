@@ -1,13 +1,13 @@
 [gd_scene load_steps=5 format=3 uid="uid://dm08ob8mef7bt"]
 
-[ext_resource type="Script" path="res://CharacterBody2D.gd" id="1_pekxg"]
-[ext_resource type="Texture2D" uid="uid://dbbqhv3v376ch" path="res://Scenes/Mobs/KaZoTank/KaZoTank_image.png" id="2_nwo75"]
+[ext_resource type="Script" path="res://Scripts/Mobs/KaZoTank/CharacterBody2D.gd" id="1_73dwn"]
+[ext_resource type="Texture2D" uid="uid://dbbqhv3v376ch" path="res://Assets/Mobs/KaZoTank/KaZoTank_image.png" id="2_at0ij"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ugmms"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_nwo75")
+"texture": ExtResource("2_at0ij")
 }],
 "loop": true,
 "name": &"default",
@@ -18,15 +18,15 @@ animations = [{
 size = Vector2(20.4348, 27.5641)
 
 [node name="KaZoTank" type="CharacterBody2D"]
-script = ExtResource("1_pekxg")
+script = ExtResource("1_73dwn")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ugmms")
 
 [node name="Hitbox_area" type="Area2D" parent="."]
+position = Vector2(1, 0)
 
 [node name="Hitbox" type="CollisionShape2D" parent="Hitbox_area"]
-visible = false
 position = Vector2(-16, 24)
 rotation = -1.5708
 scale = Vector2(36.8, 24.96)
