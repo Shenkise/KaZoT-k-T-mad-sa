@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bectweyegmmup"]
+
+[ext_resource type="Script" path="res://Scripts/Mobs/Parent_mob/parent_mob.gd" id="1_nl1jh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5bnf4"]
+size = Vector2(128, 128)
+
+[node name="Parent_mob" type="CharacterBody2D"]
+script = ExtResource("1_nl1jh")
+
+[node name="Hitbox_area" type="Area2D" parent="."]
+
+[node name="Hitbox" type="CollisionShape2D" parent="Hitbox_area"]
+shape = SubResource("RectangleShape2D_5bnf4")
