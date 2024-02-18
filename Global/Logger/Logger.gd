@@ -1,5 +1,6 @@
 extends Node
 
+
 @export var logging: bool = false
 
 func _is_logging(current: Node) -> bool:
