@@ -1,0 +1,16 @@
+[gd_scene load_steps=5 format=3 uid="uid://drd34ev6j5ld5"]
+
+[ext_resource type="PackedScene" uid="uid://dw66x42pl3tnw" path="res://Scenes/Components/Health_component.tscn" id="1_3w61q"]
+[ext_resource type="PackedScene" uid="uid://dykbovhsfeko6" path="res://Scenes/Components/Hitbox_component.tscn" id="2_butmq"]
+[ext_resource type="PackedScene" uid="uid://b745m1mn3oq25" path="res://Scenes/Components/Attack_hitbox_component.tscn" id="3_awaat"]
+[ext_resource type="Script" path="res://Scripts/Component/Attack_hitbox_component.gd" id="4_mn2ke"]
+
+[node name="Parent_tower" type="StaticBody2D"]
+
+[node name="Health_component" parent="." instance=ExtResource("1_3w61q")]
+
+[node name="Hitbox_component" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("2_butmq")]
+health_component = NodePath("../Health_component")
+
+[node name="Attack_hitbox_component" parent="." instance=ExtResource("3_awaat")]
+script = ExtResource("4_mn2ke")

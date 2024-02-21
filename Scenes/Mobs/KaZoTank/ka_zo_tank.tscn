@@ -27,6 +27,7 @@ sprite_frames = SubResource("SpriteFrames_ugmms")
 position = Vector2(1, 0)
 
 [node name="Hitbox" type="CollisionShape2D" parent="Hitbox_area"]
+visible = false
 position = Vector2(-16, 24)
 rotation = -1.5708
 scale = Vector2(36.8, 24.96)

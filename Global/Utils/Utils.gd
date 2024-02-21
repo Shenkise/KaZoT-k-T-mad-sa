@@ -10,6 +10,7 @@ func Save_game():
 	
 	var jstr = JSON.stringify(data)
 	file.store_line(jstr)
+	debug_log("Save succsesful")
 	
 
 func Load_game():
@@ -25,6 +26,6 @@ func Load_game():
 				pass
 	else:
 		#Loggerrel helyettesiteni kesobb!
-		print_debug("NO EXISTING SAVE FILE")
+		debug_log("NO EXISTING SAVE FILE")
 		
 	file.close()

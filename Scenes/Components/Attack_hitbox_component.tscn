@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b745m1mn3oq25"]
+
+[ext_resource type="Script" path="res://Scripts/Component/Attack_hitbox_component.gd" id="1_iscpv"]
+
+[node name="Attack_hitbox_component" type="Area2D"]
+script = ExtResource("1_iscpv")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
