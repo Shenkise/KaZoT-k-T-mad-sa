@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dw66x42pl3tnw" path="res://Scenes/Components/Health_component.tscn" id="2_ffspj"]
 [ext_resource type="PackedScene" uid="uid://dykbovhsfeko6" path="res://Scenes/Components/Hitbox_component.tscn" id="3_81rwc"]
 [ext_resource type="PackedScene" uid="uid://b745m1mn3oq25" path="res://Scenes/Components/Attack_hitbox_component.tscn" id="4_11adg"]
-[ext_resource type="Script" path="res://Scripts/Component/Attack_hitbox_component.gd" id="5_r77jk"]
+[ext_resource type="PackedScene" uid="uid://psd3vitadadm" path="res://Scenes/Components/Attack_component.tscn" id="5_wyqau"]
 
 [node name="Parent_mob" type="CharacterBody2D"]
 script = ExtResource("1_nl1jh")
@@ -15,4 +15,8 @@ script = ExtResource("1_nl1jh")
 health_component = NodePath("../Health_component")
 
 [node name="Attack_hitbox_component" parent="." instance=ExtResource("4_11adg")]
-script = ExtResource("5_r77jk")
+
+[node name="Attack_component" parent="." instance=ExtResource("5_wyqau")]
+
+[connection signal="area_entered" from="Attack_hitbox_component" to="." method="_on_attack_hitbox_component_area_entered"]
+[connection signal="area_exited" from="Attack_hitbox_component" to="." method="_on_attack_hitbox_component_area_exited"]

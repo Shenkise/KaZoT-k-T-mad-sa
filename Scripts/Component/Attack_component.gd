@@ -1,4 +1,5 @@
+extends Node2D
 class_name Attack
 
-var attack_damage : float = 10.0
+@export var attack_damage : float = 10.0
 

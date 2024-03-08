@@ -1,0 +1,55 @@
+A Kazoták támadása™ egy Plants vs Zombieshoz hasonló játék. Növényeket ültet a játékos amik a folyamatosan érkező zombi horda elleni védelmet szolágja. A zombik jobb oldlaról jönnek és ha eljutnak bal oldalra, akkor a játék véget ér.
+
+
+Játék Elemek:
+//////////////////////////////////////////
+
+Növény Föld:
+-5x7 db klikkelhető terület, amikre rá kattintva megjelenik a "Növény Választás" menü.
+--- Area2D-vel megnézni, hogy az egész bent van a területben és bal klikkel kattintott.
+--- Ezek a földek egymás mellett vannak, szoros 5x7 grid szerűen elrendezve. Uniform gap van az elemek között (Pl 10 pixel)
+
+Növény Választás:
+-Az összes választható növény megjelenik egy listában. A lista maximum 5 elemet támogat egy sorban, mire új sort kezdene. Azaz item wrapping.
+--- Ezeket UI nodeokkal kellene megoldani. Van egy fő UI node, alatta a lista elemek. Mikor egyik lista elemre kattint a játékos akkor az jelzi a fő ui nodenak, hogy mi volt kiválasztva(Ez megoldható get_parent-el vagy signalokkal), majd utánna a fő ui node jelez a Növény Földnek, hogy milyen növényt kell oda tenni (Visszatérit egy növény node-ot amit oda kell rakni.)
+--- Jobb klikkel bárhova az UI-on kivül eltünteti az UI-t.
+--- lista elemek alján ki van írva, hogy mennyi pénzbe kerülnek.
+
+Pénz:
+-A képernyő egyik sarkában ki van irva mennyi pénze van a játékosnak, a pénzt szép lassan generálódik idővel. Ebből vesz a játékos növényeket.
+
+Növények:
+-A Növény Földekre lehet letenni. Minden növénynek van HP-ja ami ha elfogy akkor a növény eltörlődik
+-A növényeknek van egy hitboxuk.
+1. Shooter: Ez X másodpercként lő egy golyót, ami ha találkozik egy zombival, akkor sebzi a zombit. A shooter egy raycastot lő ki, hogy nézi, hogy létezik e zombi a sorában, és csak akkor kezd el lőni ha létezik.
+2. Potátó: Egy krumpli, ami csak áll. Falként szolgál sok HP-val.
+3. Erős Pista: 1 másodpercre rá, hogy le lett téve földre, felrobban sebezve a közelben lévő zombikat. (Csupán azokat akikkel egy sorban van, ide esetleg még egy raycastra van szükség) (esetleg nincs hitboxja, hogy ne lehessen elpusztítani)
+4. Napraforgótejeskazamataemberdzsungelréme: Ez pénzt termel minden X másodpercben.
+5. Endre: Közelharcban 1 - 1.5 mezöről támad ököllel (Kissebb távolságről mint a zombik) maga elé vagy maga mögé attol függően, hogyhol található a bázishoz legközelebb található zombi a salyát sorában 
+
+Játéktér:
+-Bal oldalt van a bázis, ahova ha a zombi betér, akkor game over, középen kiterjesztve a növény föld ahol növényeket lehet tenni. A képernyőn kivül van a hely ahol a zombik spawnolhatnak.
+- A zombik 5 sor bármelyikében spawnolhatnak (Minden X másodpercben spawnol egy zombi egy random koordinátára 5 lehetséges koordináta közül, amik az 5 sor y pozicióját képviselik)
+
+Zombi:
+- 4 féle ellenség van:
+	-- az alap KaZoTa:
+		-- Semmi speciális képesség
+		-- Normál mozgási sebesség
+		-- Közel harci támadás
+		--nomál hp
+	-- Olasz KaZoTa:
+		-- Távolsági támadás amik között mozog
+		-- Normál mozgási sebesség
+		-- Alacsony hp
+	-- Mexikói kazota:
+		-- Nem támad, hanem átugrik a tornyokon
+		-- Magas mozgási sebesség
+		-- Normál hp
+	-- KaZoTank:
+		-- Semmi sepciális képesség
+		-- Alacsony mozgási sebesség
+		-- Nagyon magas hp
+- Folyamatosan megy balra. Egy Damage boxja van ami ha érzékel valamit a zombi előtt, akkor a zombi megáll és támadni kezdi azt a valamit. Minden X másodpercben Y hp sebzét csinálva. (Meghívja a sebzés funkciót a növényen. Duck Typing: https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/gdscript_advanced.html#duck-typing)
+- Mivel damage boxja van maga előtt, ezért ha a player a zombiba helyez egy növényt, akkor a zombi szimplán átmegy a növényen, hisz az már nem előtt van, hanem benne ezért nem számit az a növény.
+

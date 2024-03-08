@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://2g6ph0unxibe"]
+
+[ext_resource type="PackedScene" uid="uid://bectweyegmmup" path="res://Scenes/Mobs/Parent_mob/parent_mob.tscn" id="1_5d404"]
+
+[node name="Mexikoi_KaZoTa" instance=ExtResource("1_5d404")]

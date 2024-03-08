@@ -1,34 +1,25 @@
-[gd_scene load_steps=5 format=3 uid="uid://dm08ob8mef7bt"]
+[gd_scene load_steps=5 format=3 uid="uid://dt67eoyibbvkf"]
 
-[ext_resource type="Script" path="res://Scripts/Mobs/KaZoTank/CharacterBody2D.gd" id="1_73dwn"]
+[ext_resource type="PackedScene" uid="uid://bectweyegmmup" path="res://Scenes/Mobs/Parent_mob/parent_mob.tscn" id="1_lysux"]
 [ext_resource type="Texture2D" uid="uid://dbbqhv3v376ch" path="res://Assets/Mobs/KaZoTank/KaZoTank_image.png" id="2_at0ij"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_ugmms"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_at0ij")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_82xbk"]
+size = Vector2(312, 336)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0pgve"]
-size = Vector2(20.4348, 27.5641)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vruy7"]
+size = Vector2(48, 304)
 
-[node name="KaZoTank" type="CharacterBody2D"]
-script = ExtResource("1_73dwn")
+[node name="KaZoTank" instance=ExtResource("1_lysux")]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_ugmms")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox_component" index="0"]
+position = Vector2(12, 32)
+shape = SubResource("RectangleShape2D_82xbk")
 
-[node name="Hitbox_area" type="Area2D" parent="."]
-position = Vector2(1, 0)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Attack_hitbox_component" index="0"]
+position = Vector2(-168, 40)
+shape = SubResource("RectangleShape2D_vruy7")
+debug_color = Color(0.933333, 0.262745, 0, 0.419608)
 
-[node name="Hitbox" type="CollisionShape2D" parent="Hitbox_area"]
-visible = false
-position = Vector2(-16, 24)
-rotation = -1.5708
-scale = Vector2(36.8, 24.96)
-shape = SubResource("RectangleShape2D_0pgve")
+[node name="KaZoTankImage" type="Sprite2D" parent="." index="3"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_at0ij")

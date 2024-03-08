@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://b01qi70p5vupj"]
+
+[ext_resource type="PackedScene" uid="uid://bectweyegmmup" path="res://Scenes/Mobs/Parent_mob/parent_mob.tscn" id="1_h22ms"]
+
+[node name="Olasz_KaZoTa" instance=ExtResource("1_h22ms")]
