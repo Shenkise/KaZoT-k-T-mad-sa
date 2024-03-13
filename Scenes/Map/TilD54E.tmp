@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bshyg7qwx7lss"]
+
+[ext_resource type="Texture2D" uid="uid://b8lpsp8ypndj2" path="res://Assets/Mobs/KaZoTank/image0.jpg" id="1_decbf"]
+[ext_resource type="Script" path="res://Scripts/Map/Tile.gd" id="1_jji78"]
+
+[node name="Tile" type="Area2D"]
+scale = Vector2(0.288, 0.25)
+script = ExtResource("1_jji78")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(3.8147e-06, 0)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_decbf")
